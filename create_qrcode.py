@@ -6,9 +6,9 @@ import datetime
 import configparser
 
 pix_config = configparser.ConfigParser()
-pix_config.read('~/etc/pix-config.ini', encoding='utf-8')
+pix_config.read('/home/luanreis/etc/pix-config.ini', encoding='utf-8')
 pix_token = pix_config["PIX"]["token"]
-pix_webhook_host = pix_config["PIX"]["webhook_host"]
+pix_webhook_host = pix_config["PIX"]["webhookhost"]
 
 def gerar_data_hora():
   now = datetime.datetime.now()

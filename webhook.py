@@ -7,12 +7,11 @@ import psycopg2
 import datetime
 
 pix_config = configparser.ConfigParser()
-pix_config.read('~/etc/pix-config.ini', encoding='utf-8')
+pix_config.read('/home/luanreis/etc/pix-config.ini', encoding='utf-8')
 pix_token = pix_config["PIX"]["token"]
-pix_log_dir = pix_config["PIX"]["log_dir"]
 
 database_config = configparser.ConfigParser()
-database_config.read('~/etc/database-config.ini', encoding='utf-8')
+database_config.read('/home/luanreis/etc/database-config.ini', encoding='utf-8')
 database_username = database_config["DEFAULT"]["database_username"]
 database_password = database_config["DEFAULT"]["database_password"]
 
@@ -102,7 +101,7 @@ def get_order_status(id):
     return str(r[0]["status"])
 
 def receive_webhook(data_json):
-    f = open(pix_log_dir + "wbhk.json", "w")
+    f = open("/home/luanreis/public_html/pix/wbhk.json", "w")
     f.write(json.dumps(data_json, indent=2))
     f.close()
     data = data_json

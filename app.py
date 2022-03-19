@@ -7,12 +7,9 @@ from flask import Flask, request, Response, __version__
 app = Flask(__name__)
 application = app
 
-pix_config.read('~/etc/pix-config.ini', encoding='utf-8')
-pix_log_dir = pix_config["PIX"]["log_dir"]
-
 @app.errorhandler(Exception)
 def handle_exception(e):
-  f = open(pix_log_dir + "log.txt", "w")
+  f = open("/home/luanreis/public_html/pix/log.txt", "w")
   f.write(str(e))
   f.close()
   return str(e)
